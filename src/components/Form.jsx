@@ -22,7 +22,6 @@ export default function Form() {
     e.preventDefault();
     updateGuest();
   };
-  console.log(users);
 
   return (
     <>
