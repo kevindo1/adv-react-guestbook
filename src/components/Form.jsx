@@ -4,15 +4,14 @@ import { useUser } from '../context/UserContext';
 import { useState } from 'react';
 
 export default function Form() {
-  const { user, setUser } = useUser();
-  const { entries, setEntries } = useEntries();
   const [name, setName] = useState('');
   const [newEntry, setNewEntry] = useState('');
+  const { setUser } = useUser();
+  const { entries, setEntries } = useEntries();
 
   const updateGuest = () => {
-    if (!newEntry) return;
-    setUser(name);
-    setEntries([...entries, { name, newEntry }]);
+    if (!newEntry) return setUser(name);
+    setEntries([...entries, { name, entry: newEntry }]);
     setNewEntry('');
   };
 
@@ -23,14 +22,24 @@ export default function Form() {
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <h4>Name</h4>
-          <input type="text" placeholder="Name"></input>
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          ></input>
         </label>
         <label>
           <h4>Message</h4>
-          <input type="text" placeholder="Message"></input>
+          <input
+            type="text"
+            placeholder="Message"
+            value={newEntry}
+            onChange={(e) => setNewEntry(e.target.value)}
+          ></input>
         </label>
         <button>Sign</button>
       </form>
