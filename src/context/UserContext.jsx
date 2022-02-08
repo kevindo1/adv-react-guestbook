@@ -16,7 +16,7 @@ const useUser = () => {
   const context = useContext(UserContext);
 
   if (context === undefined) {
-    throw new Error('useUsers msut be defined in UserContent Provider');
+    throw new Error('useUsers must be defined in UserContent Provider');
   }
 
   return context;
