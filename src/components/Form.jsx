@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Form() {
   const [name, setName] = useState('');
   const [newEntry, setNewEntry] = useState('');
-  const { users, setUsers } = useUser();
+  const { setUsers } = useUser();
   const { setEntries } = useEntries();
 
   const updateGuest = () => {
