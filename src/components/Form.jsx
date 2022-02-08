@@ -6,12 +6,15 @@ import { useState } from 'react';
 export default function Form() {
   const [name, setName] = useState('');
   const [newEntry, setNewEntry] = useState('');
-  const { setUser } = useUser();
-  const { entries, setEntries } = useEntries();
+  const { users, setUsers } = useUser();
+  const { setEntries } = useEntries();
 
   const updateGuest = () => {
-    if (!newEntry) return setUser(name);
-    setEntries([...entries, { name, entry: newEntry }]);
+    setUsers(name);
+    setEntries((prevState) => [
+      ...prevState,
+      { name, message: newEntry, id: Math.floor(Math.random() * 100) },
+    ]);
     setNewEntry('');
   };
 
@@ -19,6 +22,7 @@ export default function Form() {
     e.preventDefault();
     updateGuest();
   };
+  console.log(users);
 
   return (
     <>

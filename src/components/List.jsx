@@ -7,14 +7,12 @@ export default function List() {
   return (
     <div>
       <ul>
-        {entries.map((item) => {
-          return (
-            <li key={`${item.name}`}>
-              <h3>Name: {item.name}</h3>
-              <p>Message: {item.entry}</p>
-            </li>
-          );
-        })}
+        {entries.map(({ name, message, id }) => (
+          <li key={id}>
+            <h3>Name: {name}</h3>
+            <p>Message: {message}</p>
+          </li>
+        ))}
       </ul>
     </div>
   );
