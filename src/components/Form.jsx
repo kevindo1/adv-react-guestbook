@@ -6,7 +6,7 @@ import { useState } from 'react';
 export default function Form() {
   const [name, setName] = useState('');
   const [newEntry, setNewEntry] = useState('');
-  const { setUsers } = useUser();
+  const { users, setUsers } = useUser();
   const { setEntries } = useEntries();
 
   const updateGuest = () => {
@@ -23,23 +23,28 @@ export default function Form() {
     updateGuest();
   };
 
-  const handleNewName = () => {
-    setUsers(name);
+  const handleNewName = (e) => {
+    e.preventDefault();
+    setUsers('');
+    setName('');
   };
+
+  const nameInput = (
+    <label>
+      <h4>Name</h4>
+      <input
+        type="text"
+        placeholder="Name"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      ></input>
+    </label>
+  );
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>
-          <h4>Name</h4>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-          <button onSubmit={handleNewName}>Change Name</button>
-        </label>
+        {users ? null : nameInput}
         <label>
           <h4>Message</h4>
           <input
@@ -50,6 +55,7 @@ export default function Form() {
           ></input>
         </label>
         <button>Sign</button>
+        {users ? <button onClick={handleNewName}>Change Name</button> : null}
       </form>
     </>
   );
