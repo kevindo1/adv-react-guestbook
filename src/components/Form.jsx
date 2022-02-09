@@ -23,6 +23,10 @@ export default function Form() {
     updateGuest();
   };
 
+  const handleNewName = () => {
+    setUsers(name);
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -34,6 +38,7 @@ export default function Form() {
             value={name}
             onChange={(e) => setName(e.target.value)}
           ></input>
+          <button onSubmit={handleNewName}>Change Name</button>
         </label>
         <label>
           <h4>Message</h4>
