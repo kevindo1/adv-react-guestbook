@@ -23,3 +23,24 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+#### App.js
+
+- Renders Home component
+- Prop passed from UserContext
+
+#### Home View
+
+- Prop passed from EntryContext
+
+#### Home Component
+
+- Input form, submit button
+
+#### Header Component
+
+- Welcome (name)
+
+#### Context
+
+- EntriesContext and UserContext
