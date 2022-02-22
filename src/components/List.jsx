@@ -7,9 +7,8 @@ export default function List() {
   return (
     <div>
       <ul>
-        {entries.map(({ name, message, id }) => (
+        {entries.map(({ message, id }) => (
           <li key={id}>
-            <h3>Name: {name}</h3>
             <p>Message: {message}</p>
           </li>
         ))}
