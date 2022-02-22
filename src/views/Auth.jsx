@@ -1,17 +1,15 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom/';
 import { useUser } from '../context/UserContext';
+import './Auth.css';
 
 export default function Auth() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { users, setUsers } = useUser();
+  const { setUsers } = useUser();
   const history = useHistory();
   const [error, setError] = useState(null);
   const { from } = location.state || { from: { pathname: '/' } };
-
-  console.log(process.env.REACT_APP_AUTH_EMAIL);
-  console.log(process.env.REACT_APP_AUTH_PASSWORD);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -26,15 +24,11 @@ export default function Auth() {
     } else {
       setError('sadboi hours');
     }
-
-    console.log(username);
-    console.log(password);
-    console.log(users);
   };
 
   return (
     <div>
-      <h3>Login</h3>
+      <p className="text-4xl font-bold underline">Login</p>
       <form onSubmit={handleLogin}>
         <label>
           Username:
