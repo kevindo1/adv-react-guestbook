@@ -9,10 +9,10 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login">
+        <Route exact path="/login">
           <Auth />
         </Route>
-        <PrivateRoute>
+        <PrivateRoute exact path="/">
           <div className="App">
             <Home />
           </div>

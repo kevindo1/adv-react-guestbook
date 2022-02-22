@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory } from 'react-router-dom/';
 import { useUser } from '../context/UserContext';
 
 export default function Auth() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { setUsers } = useUser();
+  const { users, setUsers } = useUser();
   const history = useHistory();
   const [error, setError] = useState(null);
   const { from } = location.state || { from: { pathname: '/' } };
 
+  console.log(process.env.REACT_APP_AUTH_EMAIL);
+  console.log(process.env.REACT_APP_AUTH_PASSWORD);
+
   const handleLogin = (e) => {
     e.preventDefault();
     if (
-      username === process.env.REACT_APP_AUTH_USERNAME &&
+      username === process.env.REACT_APP_AUTH_EMAIL &&
       password === process.env.REACT_APP_AUTH_PASSWORD
     ) {
-      setUsers({ username: username, password: password });
+      setUsers({ name: username, password: password });
       setUsername('');
       setPassword('');
-      history.replace(from);
+      history.replace(from.pathname);
     } else {
-      setError('Login failed. Try again.');
+      setError('sadboi hours');
     }
+
+    console.log(username);
+    console.log(password);
+    console.log(users);
   };
 
   return (
@@ -30,6 +37,7 @@ export default function Auth() {
       <h3>Login</h3>
       <form onSubmit={handleLogin}>
         <label>
+          Username:
           <input
             type="text"
             placeholder="Email"
@@ -40,6 +48,7 @@ export default function Auth() {
           />
         </label>
         <label>
+          Password:
           <input
             type="text"
             placeholder="Password"
