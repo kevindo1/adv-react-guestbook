@@ -8,14 +8,14 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/login">
-          <Auth />
-        </Route>
         <PrivateRoute exact path="/">
           <div className="App">
             <Home />
           </div>
         </PrivateRoute>
+        <Route exact path="/login">
+          <Auth />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
