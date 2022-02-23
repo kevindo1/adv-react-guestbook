@@ -22,7 +22,7 @@ export default function Auth() {
       setPassword('');
       history.replace(from.pathname);
     } else {
-      setError('sadboi hours');
+      setError('Login failed, try again');
     }
   };
 
