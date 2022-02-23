@@ -28,7 +28,7 @@ export default function Auth() {
 
   return (
     <div>
-      <p className="text-4xl font-bold underline">Login</p>
+      <h3 className="text-4xl font-bold underline">Login</h3>
       <form onSubmit={handleLogin}>
         <label>
           Username:
