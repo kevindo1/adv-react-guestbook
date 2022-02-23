@@ -8,7 +8,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/login">
+        <Route path="/login">
           <Auth />
         </Route>
         <PrivateRoute exact path="/">

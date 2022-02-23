@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEntries } from '../context/EntriesContext';
+import './List.css';
 
 export default function List() {
   const { entries } = useEntries();
