@@ -31,7 +31,6 @@ export default function Auth() {
       <h3 className="text-4xl font-bold underline">Login</h3>
       <form onSubmit={handleLogin}>
         <label>
-          Username:
           <input
             type="text"
             placeholder="Email"
@@ -42,7 +41,6 @@ export default function Auth() {
           />
         </label>
         <label>
-          Password:
           <input
             type="text"
             placeholder="Password"

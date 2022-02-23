@@ -10,3 +10,12 @@ li {
   border: rgb(205, 246, 235) 5px solid;
   padding: 10px;
 }
+
+body {
+  background-color: rgb(37, 37, 60);
+  padding: 10px;
+}
+
+input {
+  margin-top: 20px;
+}

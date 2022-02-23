@@ -14,3 +14,7 @@ button {
   width: 100px;
   background-color: rgb(160, 160, 240);
 }
+
+body {
+  background-color: rgb(37, 37, 60);
+}
